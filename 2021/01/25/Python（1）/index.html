@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="zzzsrc">
+
+
+
+
+
+<title>Python基础（一） | zzzsec</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 5.3.0"></head>
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">zzzsec&#39;s blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">zzzsec&#39;s blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">Python基础（一）</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">zzzsrc</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">一月 25, 2021&nbsp;&nbsp;12:43:10</a>
+                        </span>
+                    
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h2 id="python-简介"><a href="#python-简介" class="headerlink" title="python 简介"></a>python 简介</h2><p>Python 是一个高层次的结合了解释性、编译性、互动性和面向对象的脚本语言。</p>
+<p>Python 的设计具有很强的可读性，相比其他语言经常使用英文关键字，其他语言的一些标点符号，它具有比其他语言更有特色语法结构。</p>
+<p><img src="C:\Users\99354\AppData\Roaming\Typora\typora-user-images\image-20210121134445958.png" alt="image-20210121134445958"></p>
+<h2 id="Python特点"><a href="#Python特点" class="headerlink" title="Python特点"></a>Python特点</h2><ol>
+<li>易于学习：Python有相对较少的关键字，结构简单，和一个明确定义的语法，学习起来更加简单。</li>
+<li>易于阅读：Python代码定义的更清晰。</li>
+<li>易于维护：Python的成功在于它的源代码是相当容易维护的。</li>
+<li>一个广泛的标准库：Python的最大的优势之一是丰富的库，跨平台的，在UNIX，Windows和Macintosh兼容很好。</li>
+<li>互动模式：互动模式的支持，您可以从终端输入执行代码并获得结果的语言，互动的测试和调试代码片断。</li>
+<li>可移植：基于其开放源代码的特性，Python已经被移植（也就是使其工作）到许多平台。</li>
+<li>可扩展：如果你需要一段运行很快的关键代码，或者是想要编写一些不愿开放的算法，你可以使用C或C++完成那部分程序，然后从你的Python程序中调用。</li>
+<li>数据库：Python提供所有主要的商业数据库的接口。</li>
+<li>GUI编程：Python支持GUI可以创建和移植到许多系统调用。</li>
+<li>可嵌入: 你可以将Python嵌入到C/C++程序，让你的程序的用户获得”脚本化”的能力。</li>
+</ol>
+<h3 id="为什么，要学习python"><a href="#为什么，要学习python" class="headerlink" title="为什么，要学习python?"></a>为什么，要学习python?</h3><p>思考下，为什么我们要学习Python呢？</p>
+<p><img src="C:\Users\99354\AppData\Roaming\Typora\typora-user-images\image-20210121155004796.png" alt="image-20210121155004796"></p>
+<p>NO.1<br>全球三大主流编程语言之一<br>python是一种面向对象的解释型计算机程序设计语言，具有丰富和强大的库。它已经成为继Java、C++之后的第三大语言，相对于其他语言，它的特点是：简单易学、可移植、可扩展、可嵌入、 丰富的库、免费开源等，Python难度低于java，更适合初学编程者。</p>
+<p>NO.2<br>无所不能的编程语言<br>Python除了极少的事情不能做之外，基本上可以说全能，系统运维、图形处理、数学处理、文本处理、数据库编程、网络编程、web编程 、多媒体应用、pymo引擎、黑客编程、爬虫编写、机器学习、人工智能等等。</p>
+<p>NO.3<br>无所不在的编程语言<br>Python应用特别广，国内越来越多企业热衷于Python语言，像豆瓣、搜狐、知乎、网易、 阿里、新浪、盛大等。</p>
+<p>NO.4高效可靠的编程语言<br>我相信任何使用过 Python 的开发人员都会认同它的运行速度、可靠性以及效率。你可以在各种环境下使用或者部署 Python，它只会有可忽略不计的性能损失。</p>
+<p>NO.5<br>高薪就业的编程语言<br>由于Python工程师需求增多，Python薪资也随之水涨船高。<br>北京Python工程师的平均月资能够达到19120元，而即使是应届毕业生，Python的起薪也大多数在10000元以上。</p>
+<h4 id="python的就业与方向"><a href="#python的就业与方向" class="headerlink" title="python的就业与方向"></a>python的就业与方向</h4><p>1.常规软件开发<br>2.科学计算<br>3.自动化运维<br>4.云计算<br>5.web开发<br>6.网络爬虫<br>7.数据分析<br>8.人工智能</p>
+<p><img src="C:\Users\99354\AppData\Roaming\Typora\typora-user-images\image-20210121155205476.png" alt="image-20210121155205476"></p>
+<p><img src="C:\Users\99354\AppData\Roaming\Typora\typora-user-images\image-20210121155210298.png" alt="image-20210121155210298"></p>
+<p><img src="C:\Users\99354\AppData\Roaming\Typora\typora-user-images\image-20210121155213419.png" alt="image-20210121155213419"></p>
+<h2 id="python-基础语法"><a href="#python-基础语法" class="headerlink" title="python 基础语法"></a>python 基础语法</h2><h3 id="变量及命名规则"><a href="#变量及命名规则" class="headerlink" title="变量及命名规则"></a>变量及命名规则</h3><h4 id="基本格式："><a href="#基本格式：" class="headerlink" title="基本格式："></a>基本格式：</h4><p>.py文件后缀</p>
+<h4 id="注释符："><a href="#注释符：" class="headerlink" title="注释符："></a>注释符：</h4><blockquote>
+<p>单行注释：#</p>
+<p>多行注释：’’’多行注释’’’  或者 “””多行注释””” </p>
+</blockquote>
+<h4 id="什么是变量？"><a href="#什么是变量？" class="headerlink" title="什么是变量？"></a>什么是变量？</h4><p>变量是一种用来存放数据的容器，就比如生活中的菜篮子，你可以拿他去装鸡蛋，也可以用它装青菜等其他的菜品，当然不仅限于菜，也可以拿来放水果。</p>
+<p><img src="C:\Users\99354\AppData\Roaming\Typora\typora-user-images\image-20210121160656686.png" alt="image-20210121160656686"></p>
+<p>Python 中的变量不需要声明。每个变量在使用前都必须赋值，变量赋值以后该变量才会被创建。</p>
+<h4 id="变量的基本命名规则："><a href="#变量的基本命名规则：" class="headerlink" title="变量的基本命名规则："></a>变量的基本命名规则：</h4><p>  1.变量名只能包含数字、字母、下划线，并且只以字母或下划线去开头</p>
+<p>  2.变量名中不能包含空格，可以使用下划线分割变量名。</p>
+<p>  3.变量名区分大小写，如name和NAME是两个不同的变量</p>
+<p>  4.变量名不能使用Python关键字和函数名，即不能使用Python的保留下的特殊单词，如print。</p>
+<p>  5.变量名应该简短且具有描述性。</p>
+<p>  6.推荐使用驼峰或者是下划线命名（首字母大写）</p>
+<h5 id="驼峰法："><a href="#驼峰法：" class="headerlink" title="驼峰法："></a>驼峰法：</h5><p>小驼峰式命名法： 第一个单词以小写字母开始；第二个单词的首字母大写，例如：myName、aDog</p>
+<p>大驼峰式命名法： 每一个单字的首字母都采用大写字母，例如：FirstName、LastName</p>
+<p>下划线命名法：就是用下划线“_”来连接所有的单词，比如send_buf</p>
+<p><img src="C:\Users\99354\AppData\Roaming\Typora\typora-user-images\image-20210121160951520.png" alt="image-20210121160951520"></p>
+<h3 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h3><p>在 Python 中，变量就是变量，它没有类型，我们所说的”类型”是变量所指的内存中对象的类型，Python会帮助我们去判断存进变量的数据类型，我们可以使用type()查看变量的类型。</p>
+<p>Number（数字）。<br>python3支持的Number类型包括Python3 支持 int、float、bool、complex（复数）。</p>
+<p><img src="C:\Users\99354\AppData\Roaming\Typora\typora-user-images\image-20210121175223892.png" alt="image-20210121175223892"></p>
+<p>String（字符串）。python3中的字符串类型用单引号 ‘ 或双引号 “ 括起来，也可以使用反斜杠\ 转义字符。</p>
+<p><img src="C:\Users\99354\AppData\Roaming\Typora\typora-user-images\image-20210121175315391.png" alt="image-20210121175315391"></p>
+<p>List（列表）。列表数据类型是python3 中使用最频繁的数据类型，可以完成绝大多数集合数据结构的实现。</p>
+<p><img src="C:\Users\99354\AppData\Roaming\Typora\typora-user-images\image-20210121175405334.png" alt="image-20210121175405334"></p>
+<p>Tuple（元组）。元组（tuple）数据类型与列表类似，而于元组的元素不能修改。元组写在小括号 () 里，元素用逗号隔开。</p>
+<p><img src="C:\Users\99354\AppData\Roaming\Typora\typora-user-images\image-20210121175453037.png" alt="image-20210121175453037"></p>
+<p>Dictionary（字典）。字典是无序的对象集合，用 { } 标识，是一个无序的 键(key) : 值(value) 的集合。</p>
+<p><img src="C:\Users\99354\AppData\Roaming\Typora\typora-user-images\image-20210121175617551.png" alt="image-20210121175617551"></p>
+<p>Set（集合）。是由一个或多个形态不同的组成的，构成集合的对象称做元素或成员。可以用大括号 { } 或 set() 函数创建。空集合创建用set()。</p>
+<p><img src="C:\Users\99354\AppData\Roaming\Typora\typora-user-images\image-20210121175717896.png" alt="image-20210121175717896"></p>
+<p>布尔类型：</p>
+<p>它的返回值只有两种结果，要么真，要么假，在python中Ture相当于数字1，False相当于数字0</p>
+<p>它在以下情况中判断返回值也为False:</p>
+<p>[]:空列表<br>{}:空字典<br>‘’:空字符串<br>set{}:空集合<br>():空元组<br>None:空<br>0:数字0</p>
+<p> 总之除了数字类型以外，只要该数据类型是空的，它的返回值就是False</p>
+<h4 id="可变类型与不可变类型："><a href="#可变类型与不可变类型：" class="headerlink" title="可变类型与不可变类型："></a>可变类型与不可变类型：</h4><p>不可变类型：该对象所指向的内存中的值不能被改变。当改变某个变量时候，由于其所指的值不能被改变，相当于把原来的值复制一份后再改变，这会开辟一个新的地址，变量再指向这个新的地址</p>
+<p>可变类型：该对象所指向的内存中的值可以被改变。变量（准确的说是引用）改变后，实际上是其所指的值直接发生改变，并没有发生复制行为，也没有开辟新的出地址，通俗点说就是原地改变</p>
+<p>不可变数据：<strong>Number（数字）、String（字符串）、Tuple（元组）、Frozenset（不可变集合）</strong></p>
+<p>可变数据：<strong>List（列表）、Dictionary（字典）、Set（集合）</strong></p>
+<h4 id="变量的创建过程："><a href="#变量的创建过程：" class="headerlink" title="变量的创建过程："></a>变量的创建过程：</h4><p>首先，当我们定义了一个变量name = ‘Kwan’的时候，在内存中其实是做了这样一件事：<br>程序开辟了一块内存空间，将’Kwan’存储进去，再让变量名name指向’Kwan’所在的内存地址。如下图所示</p>
+<p>我们可以通过id()方法查看这个变量在内存中的地址。<br>name = ‘Kwan’ </p>
+<p>print(id(name))</p>
+<p><img src="C:\Users\99354\AppData\Roaming\Typora\typora-user-images\image-20210122162302302.png" alt="image-20210122162302302"></p>
+<h4 id="变量的修改："><a href="#变量的修改：" class="headerlink" title="变量的修改："></a>变量的修改：</h4><p>一般我们认为修改一个变量就是用新值把就旧值覆盖掉，可Python真是这么实现的么？</p>
+<p>name = ‘Kwan’<br>print(id(name))</p>
+<p>name = ‘Kobe’<br>print(id(name))</p>
+<p><img src="C:\Users\99354\AppData\Roaming\Typora\typora-user-images\image-20210122162805927.png" alt="image-20210122162805927"></p>
+<p>实际的原理是什么样的呢？程序先申请了一块内存空间来存储’Kwan’，让name变量名指向这块内存空间，往下执行name = ‘Kobe’之后，又申请了另一块内存空间来存储’Kobe’，并让原本指向’Kwan’内存的链接断开，让name再指向’Kobe’。</p>
+<p><img src="C:\Users\99354\AppData\Roaming\Typora\typora-user-images\image-20210122162814435.png" alt="image-20210122162814435"></p>
+<h4 id="变量的指向关系："><a href="#变量的指向关系：" class="headerlink" title="变量的指向关系："></a>变量的指向关系：</h4><p>问：下面这段代码为何出现这样的现象？</p>
+<p>name1 = ‘Kwan’<br>name2 = name1<br>print(name1, name2)</p>
+<p>name1 = ‘Kobe’<br>print(name1, name2)</p>
+<p><img src="C:\Users\99354\AppData\Roaming\Typora\typora-user-images\image-20210122165241295.png" alt="image-20210122165241295"></p>
+<p>要想知道上面问题的结果是为什么，首先要了解再内存中两个变量的存储情况。</p>
+<p>从下面的示意图中我们可以知道，当执行name2 = name1时，事实上时让name2指向了’Kwan’所在的内存地址。</p>
+<p>修改name1的值，相当于断开了name1到’Kwan’的链接，重新建立name1和’Kobe’之间的链接。在这个过程中，始终没有影响到name2和’Kwan’之间的关系，因此name2还是’Kwan’，而name1变成了’Kobe’。</p>
+<p><img src="C:\Users\99354\AppData\Roaming\Typora\typora-user-images\image-20210122165309144.png" alt="image-20210122165309144"></p>
+<h3 id="下标和切片"><a href="#下标和切片" class="headerlink" title="下标和切片"></a>下标和切片</h3><h4 id="下标："><a href="#下标：" class="headerlink" title="下标："></a>下标：</h4><p>下标就是编号，就好比超市中的存储柜的编号，通过这个编号就能找到相应的存储空间</p>
+<p><img src="C:\Users\99354\AppData\Roaming\Typora\typora-user-images\image-20210122165342958.png" alt="image-20210122165342958"></p>
+<p>字符串实际上就是字符的数组，所以支持下标索引，列表、元组也支持下标。<br>注意下标是从0开始的。<br>如果有字符串:name = ‘abcdef’，在内存中的实际存储如下:</p>
+<p><img src="C:\Users\99354\AppData\Roaming\Typora\typora-user-images\image-20210122165412224.png" alt="image-20210122165412224"></p>
+<p>如果想取出部分字符，那么可以通过下标的方法，（注意python中下标从 0 开始）</p>
+<p>   name = ‘abcdef’</p>
+<p>   print(name[0])<br>   print(name[1])<br>   print(name[2])</p>
+<h4 id="切片："><a href="#切片：" class="headerlink" title="切片："></a>切片：</h4><p>切片是指对操作的对象截取其中一部分的操作。字符串、列表、元组都支持切片操作。</p>
+<h5 id="切片的语法："><a href="#切片的语法：" class="headerlink" title="切片的语法："></a>切片的语法：</h5><p><strong>[起始:结束:步长(方向)]</strong></p>
+<p>注意：选取的区间属于左闭右开型，即从”起始”位开始，到”结束”位的前一位结束（不包含结束位本身)。</p>
+<p>以字符串为例讲解。<br>如果取出一部分，则可以在中括号[]中，使用:</p>
+<p>示例：<br>     name = ‘abcdef’</p>
+<p>​     print(name[0:3]) # 取 下标0~2 的字符</p>
+<hr>
+<blockquote>
+<p>示例1：<br>     name = ‘abcdef’<br>     print(name[0:3]) # 取 下标0-2 的字符</p>
+<p>结果为：<br>？</p>
+</blockquote>
+<blockquote>
+<p>示例2：     name = ‘abcdef’<br>     print(name[2:]) # 取 下标为2开始到最后的字符</p>
+<p>结果为：<br>？</p>
+</blockquote>
+<blockquote>
+<p>示例3：<br>     name = ‘abcdef’<br>     print(name[1:-1]) # 取下标为1开始 到最后第2个之间的字符</p>
+<p>结果为：<br>？</p>
+</blockquote>
+<blockquote>
+<p>示例4：<br>     name = ‘abcdef’<br>     print(name[::2]) # 从下标0开始到最后，步长为2</p>
+<p>结果为：<br>？</p>
+</blockquote>
+<blockquote>
+<p>示例5：<br>     name = ‘abcdef’<br>     print(name[1:5:2]) # 取下标为1开始到4之间的字符，步长2</p>
+<p>结果为：<br>？</p>
+</blockquote>
+<blockquote>
+<p>示例6：<br>     name = ‘abcdef’<br>     print(name[::-2]) # 从下标0开始到最后，步长为-2</p>
+<p>结果为：</p>
+<p>??</p>
+</blockquote>
+<h3 id="标识符和关键字"><a href="#标识符和关键字" class="headerlink" title="标识符和关键字"></a>标识符和关键字</h3><p><strong>什么是标示符？</strong><br>开发人员在程序中自定义的一些符号和名称。<br>标示符是自己定义的,如变量名 、函数名等。<br>标识符的命名规则同变量。</p>
+<p>什么是关键字？<br>python一些具有特殊功能的标示符，这就是所谓的关键字。</p>
+<p>关键字，是python已经使用的了，所以不允许开发者自己定义和关键字相同的名字的标示符。</p>
+<p><img src="C:\Users\99354\AppData\Roaming\Typora\typora-user-images\image-20210125082339453.png" alt="image-20210125082339453"></p>
+<h3 id="输入和输出"><a href="#输入和输出" class="headerlink" title="输入和输出"></a>输入和输出</h3><p>生活中的输入，比如去银行取现，要登陆账户</p>
+<p><img src="C:\Users\99354\AppData\Roaming\Typora\typora-user-images\image-20210125082415048.png" alt="image-20210125082415048"></p>
+<p>在Python中，这里所说的输入，是Python获取用户的键盘输入，然后进一步去利用</p>
+<p>demo:<br>    pwd = input(“请输入密码:”)<br>    print （‘您刚刚输入的密码是:’, pwd）</p>
+<p>input()的小括号中放入的是，提示信息，在获取数据之前给用户的一个提示</p>
+<p>input()在从键盘获取了数据以后，会存放到等号左边的变量中</p>
+<p>input()会把用户输入的任何值都作为字符串来对待</p>
+<p>注意：input()接受表达式输入</p>
+<p>生活中的输出</p>
+<p><img src="C:\Users\99354\AppData\Roaming\Typora\typora-user-images\image-20210125123412998.png" alt="image-20210125123412998"></p>
+<p>Python3输出：<br>print()</p>
+<p><img src="C:\Users\99354\AppData\Roaming\Typora\typora-user-images\image-20210125123532236.png" alt="image-20210125123532236"></p>
+<h5 id="格式化输出："><a href="#格式化输出：" class="headerlink" title="格式化输出："></a>格式化输出：</h5><p>​    age = 10<br>​    print(“我今年%d岁”%age)</p>
+<p>​    age += 1<br>​    print(“我今年%d岁”%age)</p>
+<p>​    age += 1<br>​    print(“我今年%d岁”%age)</p>
+<p>在程序中，看到了%这样的操作符，这就是Python中格式化输出。<br>    age = 18<br>    name = “xiaohua”<br>    print(“我的姓名是%s,年龄是%d”%(name,age))</p>
+<p>常见的格式化符号：</p>
+<p><img src="C:\Users\99354\AppData\Roaming\Typora\typora-user-images\image-20210125123553975.png" alt="image-20210125123553975"></p>
+<h5 id="换行输出："><a href="#换行输出：" class="headerlink" title="换行输出："></a>换行输出：</h5><p>在输出的时候，如果有\n那么，此时\n后的内容会在下一行显示</p>
+<p>​    print(“1234567890——-“) # 会在一行显示</p>
+<p>​    print(“1234567890\n——-”) # 一行显示1234567890，下一行显示——-</p>
+<h5 id="算术运算符"><a href="#算术运算符" class="headerlink" title="算术运算符:"></a>算术运算符:</h5><p><img src="C:\Users\99354\AppData\Roaming\Typora\typora-user-images\image-20210125123720551.png" alt="image-20210125123720551"></p>
+<h5 id="赋值运算符"><a href="#赋值运算符" class="headerlink" title="赋值运算符:"></a>赋值运算符:</h5><p><img src="C:\Users\99354\AppData\Roaming\Typora\typora-user-images\image-20210125123736502.png" alt="image-20210125123736502"></p>
+<h5 id="复合赋值运算符"><a href="#复合赋值运算符" class="headerlink" title="复合赋值运算符"></a>复合赋值运算符</h5><p><img src="C:\Users\99354\AppData\Roaming\Typora\typora-user-images\image-20210125123746124.png" alt="image-20210125123746124"></p>
+<h5 id="比较运算符"><a href="#比较运算符" class="headerlink" title="比较运算符"></a>比较运算符</h5><p><img src="C:\Users\99354\AppData\Roaming\Typora\typora-user-images\image-20210125123755807.png" alt="image-20210125123755807"></p>
+<h5 id="常用数据类型转换（强制类型转换）"><a href="#常用数据类型转换（强制类型转换）" class="headerlink" title="常用数据类型转换（强制类型转换）"></a>常用数据类型转换（强制类型转换）</h5><p><img src="C:\Users\99354\AppData\Roaming\Typora\typora-user-images\image-20210125123859121.png" alt="image-20210125123859121"></p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>zzzsec</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Frend Links:</span>
+                        <span><a target="_blank" rel="noopener" href="http://laosec.cn"><strong>法大佬</strong></a></span>
+                            
+                        
+                        
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 CC-BY-NC-4.0 LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span><strong>现实中的废物 连上wifi就像个怪物开始跳</strong></span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+            
+            <a class="next" rel="next" href="/2021/01/15/hello-world/">Hello World</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© zzzsrc | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+</html>
