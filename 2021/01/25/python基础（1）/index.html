@@ -193,7 +193,7 @@
         <div class="post-content">
             <h2 id="python-简介"><a href="#python-简介" class="headerlink" title="python 简介"></a>python 简介</h2><p>Python 是一个高层次的结合了解释性、编译性、互动性和面向对象的脚本语言。</p>
 <p>Python 的设计具有很强的可读性，相比其他语言经常使用英文关键字，其他语言的一些标点符号，它具有比其他语言更有特色语法结构。</p>
-<p><img src="C:\Users\99354\AppData\Roaming\Typora\typora-user-images\image-20210121134445958.png" alt="image-20210121134445958"></p>
+<p><img src="C:\Users\99354\AppData\Roaming\Typora\typora-user-images\image-20210121134445958.png" alt="avatar"></p>
 <h2 id="Python特点"><a href="#Python特点" class="headerlink" title="Python特点"></a>Python特点</h2><ol>
 <li>易于学习：Python有相对较少的关键字，结构简单，和一个明确定义的语法，学习起来更加简单。</li>
 <li>易于阅读：Python代码定义的更清晰。</li>
@@ -291,28 +291,29 @@
 <hr>
 <blockquote>
 <p>示例1：<br>     name = ‘abcdef’<br>     print(name[0:3]) # 取 下标0-2 的字符</p>
-<p>结果为：<br>？</p>
+<p>结果为：<br>abc</p>
 </blockquote>
 <blockquote>
-<p>示例2：     name = ‘abcdef’<br>     print(name[2:]) # 取 下标为2开始到最后的字符</p>
-<p>结果为：<br>？</p>
+<p>示例2：   </p>
+<p>  name = ‘abcdef’<br>  print(name[2:]) # 取 下标为2开始到最后的字符</p>
+<p>结果为：<br>cdef</p>
 </blockquote>
 <blockquote>
 <p>示例3：<br>     name = ‘abcdef’<br>     print(name[1:-1]) # 取下标为1开始 到最后第2个之间的字符</p>
-<p>结果为：<br>？</p>
+<p>结果为：<br>bcde</p>
 </blockquote>
 <blockquote>
 <p>示例4：<br>     name = ‘abcdef’<br>     print(name[::2]) # 从下标0开始到最后，步长为2</p>
-<p>结果为：<br>？</p>
+<p>结果为：<br>ace</p>
 </blockquote>
 <blockquote>
 <p>示例5：<br>     name = ‘abcdef’<br>     print(name[1:5:2]) # 取下标为1开始到4之间的字符，步长2</p>
-<p>结果为：<br>？</p>
+<p>结果为：<br>bd</p>
 </blockquote>
 <blockquote>
 <p>示例6：<br>     name = ‘abcdef’<br>     print(name[::-2]) # 从下标0开始到最后，步长为-2</p>
 <p>结果为：</p>
-<p>??</p>
+<p>fdb</p>
 </blockquote>
 <h3 id="标识符和关键字"><a href="#标识符和关键字" class="headerlink" title="标识符和关键字"></a>标识符和关键字</h3><p><strong>什么是标示符？</strong><br>开发人员在程序中自定义的一些符号和名称。<br>标示符是自己定义的,如变量名 、函数名等。<br>标识符的命名规则同变量。</p>
 <p>什么是关键字？<br>python一些具有特殊功能的标示符，这就是所谓的关键字。</p>
@@ -339,6 +340,79 @@
 <h5 id="换行输出："><a href="#换行输出：" class="headerlink" title="换行输出："></a>换行输出：</h5><p>在输出的时候，如果有\n那么，此时\n后的内容会在下一行显示</p>
 <p>​    print(“1234567890——-“) # 会在一行显示</p>
 <p>​    print(“1234567890\n——-”) # 一行显示1234567890，下一行显示——-</p>
+<h5 id="Python-转义字符"><a href="#Python-转义字符" class="headerlink" title="Python 转义字符"></a>Python 转义字符</h5><p>在需要在字符中使用特殊字符时，python 用反斜杠 <strong>\</strong> 转义字符。如下表：</p>
+<table>
+<thead>
+<tr>
+<th align="left">转义字符</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">(在行尾时)</td>
+<td align="center">续行符</td>
+</tr>
+<tr>
+<td align="left">\\</td>
+<td align="center">反斜杠符号</td>
+</tr>
+<tr>
+<td align="left">\‘</td>
+<td align="center">单引号</td>
+</tr>
+<tr>
+<td align="left">\“</td>
+<td align="center">双引号</td>
+</tr>
+<tr>
+<td align="left">\a</td>
+<td align="center">响铃</td>
+</tr>
+<tr>
+<td align="left">\b</td>
+<td align="center">退格(Backspace)</td>
+</tr>
+<tr>
+<td align="left">\e</td>
+<td align="center">转义</td>
+</tr>
+<tr>
+<td align="left">\000</td>
+<td align="center">空</td>
+</tr>
+<tr>
+<td align="left">\n</td>
+<td align="center">换行</td>
+</tr>
+<tr>
+<td align="left">\v</td>
+<td align="center">纵向制表符</td>
+</tr>
+<tr>
+<td align="left">\t</td>
+<td align="center">横向制表符</td>
+</tr>
+<tr>
+<td align="left">\r</td>
+<td align="center">回车</td>
+</tr>
+<tr>
+<td align="left">\f</td>
+<td align="center">换页</td>
+</tr>
+<tr>
+<td align="left">\oyy</td>
+<td align="center">八进制数，y 代表 0~7 的字符，例如：\012 代表换行。</td>
+</tr>
+<tr>
+<td align="left">\xyy</td>
+<td align="center">十六进制数，以 \x 开头，yy代表的字符，例如：\x0a代表换行</td>
+</tr>
+<tr>
+<td align="left">\other</td>
+<td align="center">其它的字符以普通格式输出</td>
+</tr>
+</tbody></table>
 <h5 id="算术运算符"><a href="#算术运算符" class="headerlink" title="算术运算符:"></a>算术运算符:</h5><p><img src="C:\Users\99354\AppData\Roaming\Typora\typora-user-images\image-20210125123720551.png" alt="image-20210125123720551"></p>
 <h5 id="赋值运算符"><a href="#赋值运算符" class="headerlink" title="赋值运算符:"></a>赋值运算符:</h5><p><img src="C:\Users\99354\AppData\Roaming\Typora\typora-user-images\image-20210125123736502.png" alt="image-20210125123736502"></p>
 <h5 id="复合赋值运算符"><a href="#复合赋值运算符" class="headerlink" title="复合赋值运算符"></a>复合赋值运算符</h5><p><img src="C:\Users\99354\AppData\Roaming\Typora\typora-user-images\image-20210125123746124.png" alt="image-20210125123746124"></p>
@@ -393,6 +467,8 @@
             </div>
         </section>
         <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2021/01/25/python%E5%9F%BA%E7%A1%80%EF%BC%882%EF%BC%89/">Python基础（二）</a>
             
             
             <a class="next" rel="next" href="/2021/01/15/hello-world/">Hello World</a>
